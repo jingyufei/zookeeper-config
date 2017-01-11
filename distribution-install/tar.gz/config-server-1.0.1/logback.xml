@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="300000">
+
+    <contextName>mae-archarge-service-log</contextName>
+
+    <property name="root.logger.level" value="INFO"/>
+    <property name="log.path" value="/var/log/mae" />
+    <property name="app.name" value="mae-ar-service" />
+    <property name="app.version" value="2.0.4" />
+
+    <property name="log.file" value="${log.path}/${app.name}-${app.version}/${app.name}.%d{yyyyMMddHH}.%i.log.gz"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } [%t] --- %-40.40logger{39} - %L : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <ImmediateFlush>true</ImmediateFlush>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } [%t] --- %-40.40logger{39} - %L: %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.file}</FileNamePattern>
+            <MaxHistory>60</MaxHistory>
+
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>5000</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+        <appender-ref ref="fileAppender"/>
+    </appender>
+
+    <!-- 如果要输出业务日志, 请修改为TRACE -->
+    <logger name="com.baoyun.mae" level="INFO"></logger>
+    <logger name="org.springframework" level="ERROR"></logger>
+    <logger name="org.apache.zookeeper" level="ERROR"></logger>
+
+    <root level="${root.logger.level}">
+        <appender-ref ref="asyncFileAppender"/>
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

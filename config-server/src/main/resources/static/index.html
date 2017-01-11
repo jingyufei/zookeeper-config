@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta http-equiv="CACHE-CONTROL" content="private"/>
+          
+        <meta http-equiv="Content-Encoding" content="gzip"/>
+       
+        <title>通用配置</title>
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/pagination.css" />
+		<link rel="stylesheet" href="css/mae_css.css" />	
+			
+		<link rel="stylesheet" href="css/inherit_CoCo.css"/>
+		<link rel="stylesheet" href="css/finance.css" />
+		<link rel="stylesheet" href="css/deposit.css" />
+		<link rel="stylesheet" href="css/inherit.css" />
+		<link rel="stylesheet" href="css/agent.css" />
+	</head>
+	<body ng-app="linker" >
+		<div class="fullscreen" ng-controller="MainController as mainpage">
+			   <div class="header">
+				   
+				       <div class="logo"><img src="images/logo-title.png"></div> 
+				        <div class="dl_right fr">
+				             <img src="images/adm.png" class="fl user-img" >
+							 <div class="dropdown fl" ng-cloak>
+							 	  <button ng-if="currentUser.agentName!='null'&&currentUser.name==null" class="btn btn-default dropdown-toggle user-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								   {{currentUser.agentName}}
+								    <span class="caret"></span>
+								  </button>
+								  <button ng-if="currentUser.agentName!='null'&&currentUser.name!=null" class="btn btn-default dropdown-toggle user-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								   {{currentUser.agentName}}&nbsp;&nbsp;&nbsp;{{currentUser.name}}
+								    <span class="caret"></span>
+								  </button>
+								  <button ng-if="currentUser.agentName=='null'" class="btn btn-default dropdown-toggle user-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								   {{currentUser.name}}
+								    <span class="caret"></span>
+								  </button>
+								  <div style="color:white;display: inline-block;" ng-if="currentUser.type=='admin'">{{currentUser.enterNameshow}}</div>
+								  <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								    <li><a ng-click="logout()">退出登录</a></li>						    
+								  </ul> -->
+							</div>
+				       </div>
+				</div>
+				<div class="main-page">
+					<div id="left-nav">
+						<ul class="list-group">
+					    	<li>
+					        	<a href="#{{item.href}}" class="list-group-item {{item.ngclass}}" ng-repeat="item in navigators" ng-click="selectthis(item.name)" ng-if="item.display" ng-cloak>
+					        		<img src="images/{{item.ngclass}}_{{item.image}}.png" width="20" height="20">&nbsp;&nbsp;{{item.name}}
+					        	</a>
+					        </li>
+						</ul>
+					</div>
+					<div id="right-content" ng-view></div>
+				</div>
+				<div class="footer bgc_0 t_c fc_0">
+                  <span>宝蕴吉瑞(北京)通讯设备有限公司</span>
+                </div>
+		</div>        
+	</body>
+    <script type="text/javascript" src="js/libs/angular.min.js" ></script>
+	<script type="text/javascript" src="js/libs/angular-route.min.js" ></script>
+	<script type="text/javascript" src="js/libs/jquery-1.11.3.min.js" ></script>
+	<script type="text/javascript" src="js/libs/laydate/laydate.js" ></script>
+	<script type="text/javascript" src="js/libs/laypage/laypage.js" ></script>
+	<script type="text/javascript" src="js/libs/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/libs/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/libs/underscore.js" ></script>
+	<script type="text/javascript" src="js/libs/datejs/WdatePicker.js" ></script>
+	<script type="text/javascript" src="js/libs/md5.min.js" ></script>
+	
+	<script type="text/javascript" src="js/app.js" ></script>
+	<script type="text/javascript" src="js/services/main/mainpage.js" ></script>
+	<script type="text/javascript" src="js/services/main/config.js" ></script>
+	
+	<script type="text/javascript" src="js/services/common/service.js"></script>
+	<script type="text/javascript" src="js/services/common/api_response.js" ></script>	
+	<script type="text/javascript" src="js/services/common/check.js"></script>
+	<script type="text/javascript" src="js/services/common/popup.js"></script>
+	<script type="text/javascript" src="js/services/common/web.js"></script>
+	
+	<script type="text/javascript" src="js/controllers/main/mainpage.js" ></script>
+	<script type="text/javascript" src="js/controllers/main/config.js" ></script>
+	
+	<script type="text/javascript" src="js/directives/popup.js"></script>
+	<script type="text/javascript" src="js/directives/dynamic.js"></script>
+</html>

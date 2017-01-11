@@ -1,0 +1,33 @@
+<div class="background" ng-show="control.show">
+	<div class="jump_show_parent">
+		<div class="jump_show">
+			<div class="jump_show_head">{{control.head}}
+
+			</div>
+			<div style="max-height: 500px;overflow: auto;">
+				<div style="background: white;padding-top:13px;padding-left:13px;" >
+					<table width="90%">
+							<tr style="height:30px" ng-init="init($index);" ng-repeat=" item in control.datas ">
+								<td width="30%">{{item.name}}:</td>
+								<td>
+									<div ng-if="item.url " dynamic="item.url "></div>
+									<div ng-if="!item.url ">
+										<input ng-if="item.disabled " style="display: block;width: 100%;    background-color:#cccccc" disabled="disabled" type="text " name="{{$index}}" style="display: block;width: 100%; " ng-blur="check(item.blur,$event) " ng-model="data[3*$index] ">
+										<input ng-if="!item.disabled " type="text " name="{{$index}}" style="display: block;width: 100%; " ng-blur="check(item.blur,$event) " ng-model="data[3*$index] ">
+									</div>
+									<div class="alert_note " ng-show="data[3*$index+1] ">{{data[3*$index+2]}}
+									</div>
+								</td>
+							</tr>
+						
+						
+					</table>
+				</div>
+			</div>
+			<div class="jump_show_foot ">
+				<div class="click_button btn btn-primary" style="margin: auto; " ng-click="send() ">确认</div>
+				<div class="click_button btn btn-primary" style="margin: auto; " ng-click="back() ">取消</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+<div class="filters">
+	<form class="form-inline">
+		<div style="width:100%;margin:0px auto 20px auto">
+			<popup control="popupdata" refresh-fn="get_data()" send-fn="send(data)"></popup>
+			<div style="margin: 10px 0% 10px 0%;height:34px; ">
+				<select class="form-control search-bar" style="width:200px" ng-model="groupName" ng-change="queryConfig()">
+					  <option value="" class="condition-desc" selected>配置组</option>
+					  <option ng-repeat="group in groups" value="{{group}}">{{group}}</option>		  
+			    </select>
+			    
+			    <input type="text" class="form-control search-bar province" ng-model='propertyKey' placeholder="配置名">		
+			    <a class="btn btn-primary" role="button" ng-click="queryConfig()">查询</a>
+				
+				<div ng-click="exportConfig() " style="float: right;" class="click_button btn btn-primary">导出配置组</div>
+				&nbsp;&nbsp;
+				<div ng-click="addGroup() " style="float: right;" class="click_button btn btn-primary">新增配置组</div>
+				&nbsp;&nbsp;
+				
+				<div ng-click="importProperty() " style="float: right;" class="click_button btn btn-primary">导入配置项</div>
+				&nbsp;&nbsp;
+				<div ng-click="addProperty() " style="float: right;" class="click_button btn btn-primary">新增配置项</div>
+				
+			</div>
+		</div>
+	</form>
+</div>
+	<table class="tb_y tb_p0 bgc_3 f_12 instance_table " cellpadding="0 " cellspacing="1 " border="0 ">
+		<tr>
+			<td class="bgc_4 " width="5% ">序号</td>
+			<td class="bgc_4 " width="10% ">配置组</td>
+			<td class="bgc_4 " width="15% ">配置项</td>
+			
+			<td class="bgc_4 " width="15% ">说明</td>
+			<td class="bgc_4 " width="10% ">最后更新时间</td>
+			<td class="bgc_4 " width="5% ">操作</td>
+		</tr>
+		<tr ng-repeat="item in configs ">
+			<td>{{$index}}</td>
+			<td>{{item.groupName}}</td>
+			
+			<td style="text-align:left">{{item.propertyKey}}={{item.propertyValue}}</td>
+			<td style="text-align:center"><div>{{item.propertyDesc}}</div></td>
+			<td><div>{{item.updateTime}}</div></td>
+			<td>
+				<div class="table_fun_word " ng-click="edit(item) ">
+					编辑
+				</div>
+				&nbsp;
+				<div class="table_fun_word" ng-click="del(item)" >
+					删除
+				</div>
+			</td>
+		</tr>
+		<tr ng-show="configs==null || configs.length==0 ">
+			<td colspan="7 ">没有匹配的记录</td>
+		</tr>
+	</table>
+	<pagination present='page' length='totalPage'></pagination>
+		<br/>
+</div>

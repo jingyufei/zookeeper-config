@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+
+	<property name="logDir" value="/var/log/config" />
+	<property name="appName" value="config-client" />
+	<property name="appVersion" value="1.0.0" />
+	<property name="rollLogFilePath" value="${logDir}/${appName}-${appVersion}/${appName}-%d{yyyy-MM-dd}-%i.log" />
+	<property name="logPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+	<property name="logLevel" value="DEBUG" />
+	<property name="thirdLogLevel" value="INFO" />
+
+
+	<!-- console logging -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${logPattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="rollLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${rollLogFilePath}</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>300MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<ImmediateFlush>true</ImmediateFlush>
+			<pattern>${logPattern}</pattern>
+		</encoder>
+
+
+	</appender>
+
+	<!-- 第三方log -->
+	<logger name="org.jsoup" level="${thirdLogLevel}" />
+	<logger name="org.apache" level="${thirdLogLevel}" />
+
+
+	<root level="${logLevel}">
+		<appender-ref ref="console" />
+		<appender-ref ref="rollLogFile" />
+	</root>
+
+</configuration>

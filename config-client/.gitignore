@@ -1,0 +1,8 @@
+
+*.class
+target/
+temp/
+
+#.classpath
+#.project
+#.settings/

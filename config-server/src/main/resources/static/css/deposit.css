@@ -1,0 +1,59 @@
+.deposit-alert{
+	margin-left: 20% ;
+	margin-top: 5px;
+	width: 60%;
+}
+
+.deposit-row select:hover{
+	cursor: pointer;
+}
+
+.deposite-container{
+	border: 1px solid #c4c4c4;
+	border-radius: 6px;
+	width: 60%;
+	height:auto;
+	margin: auto;	
+	margin-top:15%;
+}
+
+.deposit-cntr{
+	margin: auto;
+	width: 80%;
+	height: 80%;
+}
+
+.deposit-row{
+	margin-left: 20%;
+	margin-top: 30px;
+	/*padding-left: 15%;*/
+	/*line-height: 15px;*/
+	display: inline-block;
+	width: 60%;
+}
+
+.deposit-row-bottom{
+	margin-bottom: 30px;
+}
+
+.deposit-label{
+	margin-top: 7px; 
+	float: left;
+}
+
+.deposit-text{
+	padding: 5px; 
+	width: 65%;
+	float: right;
+}
+
+.table_top{	
+	margin-top: 200px;
+	margin-left: 200px;
+}
+
+.deposit-button{
+	margin-left:80px ;  
+	width: 40%;	
+}
+

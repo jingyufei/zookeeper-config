@@ -1,0 +1,42 @@
+.finance-container{ 
+	border: 1px solid #c4c4c4;
+	border-radius: 6px;
+	height: 180px;
+	width: 48%;
+	float: left;
+}
+.form-bottom{
+	margin-bottom: 20px;
+}
+span.no-sort-up{
+	background-image: url(../images/no-sort-up.png);
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	width:10px;
+	height: 8px;
+}
+span.no-sort-down{
+	background-image: url(../images/no-sort-down.png);
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	width:10px;
+	height: 8px;
+}
+span.sort-up{
+	background-image: url(../images/sort-up.png);
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	width:10px;
+	height: 8px;
+}
+span.sort-down{
+	background-image: url(../images/sort-down.png);
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	width:10px;
+	height: 8px;
+}

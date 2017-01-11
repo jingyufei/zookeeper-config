@@ -1,0 +1,160 @@
+ul li{  
+   list-style-type:none;  
+}  
+/* ������
+table td{white-space:nowrap;overflow:hidden; text-overflow:ellipsis;} 
+table  {table-layout:fixed;} 
+*/
+
+/* ���� */
+table td{WORD-BREAK:break-all; WORD-WRAP: break-word;} 
+
+.dl_right{ 
+	line-height: 43px;
+	margin-top: 5px;
+	margin-right:15px;
+}
+.dl_right a {
+    color: #fff;
+    border: 0px;
+}
+.dl_right a span{
+    margin-left:4px;
+}
+
+.header{
+	background : #3e546c;
+	height: 50px;
+	width:100%;
+	font-size:14px;	
+    top: 0;
+}
+
+.logo{
+	float: left;
+	margin-left: 14px;
+}
+.main-page{
+	width:100%;
+	position: absolute;
+	top: 50px;
+	bottom: 45px;
+}
+.footer{ 
+	height:45px; 
+	line-height:45px;
+	width:100%;
+	float:left;
+	position:absolute;
+	bottom:0;
+	} 
+.fullscreen{
+	width:100%;
+	height:100%;
+	
+}
+.login-page{
+	width:100%;
+	height: 83%;
+	padding-top: 90px;
+}
+.login-container{ 
+	border: 1px solid #c4c4c4;
+	border-radius: 6px;
+	width: 50%;
+	height:320px;
+	margin: auto;
+}
+#left-nav{
+	width:12%;
+	height: 100%;
+    float:left;
+	background-color: #ececec;
+	overflow : auto;
+}
+#right-content{
+	width:88%;
+	float:left;
+	padding: 0 5px;
+	overflow-x: hidden;
+	height: 100%;
+	/*
+	min-height : 450px;
+	overflow : auto;*/
+}
+
+div.data_area{
+	height: 448px;
+	overflow : auto;
+}
+
+.alert{
+	margin-bottom: 0;
+	padding: 0px;
+}
+.form-control{
+	height: 40px;
+}
+.login-button{
+	float: left;
+	margin-top:8px ;
+	width: 40%;
+	background-color: #428bca;
+}
+.bk-signin-button{
+	float: right;
+	margin-top:8px ;
+	width: 40%;
+	background-color: #428bca;
+}
+.form-row{
+	margin-top:20px
+}
+.instance_table{
+	height:38px;
+	width:100%;
+}
+.instance_table tr{
+	height:38px;
+	
+}
+a.orderImage{
+	text-decoration:none;
+	font-weight:900;
+	cursor : pointer;
+}
+.filters{
+	padding:5px 0 13px 0;
+}
+
+.filters .search-bar{
+	width:10%;
+	display:inline;
+	color: #999;
+	font-weight:700;
+	width:130px !important;
+	height:32px !important;
+	margin-right:15px;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+}
+.filters .province{
+	width:15% !important;
+}
+.filters a.nav-link{
+	padding:10px 20px;
+	cursor : pointer;
+	font-weight:700;
+}
+.condition-desc{
+	display:none;
+}
+.user-info.btn-default, .user-info.btn-default:hover, .user-info.btn-default.active, .user-info.btn-default.active.foucus{
+    background-color: #3e546c !important;
+    border:0 !important;
+    color: #fff !important;
+}
+.header .user-img {
+	margin-top:17px;
+}
+
